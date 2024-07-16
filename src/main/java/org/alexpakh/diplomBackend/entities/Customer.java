@@ -3,6 +3,7 @@ package org.alexpakh.diplomBackend.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.antlr.v4.runtime.misc.NotNull;
 
 @Entity
 @AllArgsConstructor
@@ -22,6 +23,7 @@ public class Customer {
     private String login;
     private String password;
     private String telephoneNumber;
+    @Column(name="email",unique = true,nullable = false)
     private String email;
 
 }

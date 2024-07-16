@@ -29,7 +29,7 @@ public class CustomerController {
         return customerService.getAllCustomers();
     }
 
-    @PostMapping
+    @PostMapping("/add user")
     public Customer createCustomer(@RequestBody Customer customer) {
         return customerService.createCustomer(customer);
     }
