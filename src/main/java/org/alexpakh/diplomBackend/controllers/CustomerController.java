@@ -9,8 +9,8 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/rent/customers")
-@CrossOrigin(origins = "http://localhost:4200")
+@RequestMapping("/api")
+@CrossOrigin( origins={"http://localhost:4200", "https://app.swift.netcraze.pro"})
 public class CustomerController {
 
     private final CustomerService customerService;
@@ -24,7 +24,7 @@ public class CustomerController {
         return customerService.getCustomerById(id);
     }
 
-    @GetMapping
+    @GetMapping ("/all_customers")
     public List<Customer> getAllCustomers() {
         return customerService.getAllCustomers();
     }
