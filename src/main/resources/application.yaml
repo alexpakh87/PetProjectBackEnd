@@ -1,6 +1,14 @@
+server:
+  port: 8081
+#  ssl:
+#    key-store-type: PKCS12
+#    key-store: classpath:keystore.p12
+#    key-store-password: changeit
+#    key-alias: tomcat
+
 spring:
   datasource:
-    name: PetProjectBackend
+    name: Pet
     url: jdbc:postgresql://localhost:5434/pet
     username: admin
     password: admin
@@ -11,6 +19,10 @@ spring:
     hibernate:
       ddl-auto: validate
 
+
+
+
+
 #  flyway:
 #    baseline-on-migrate: false
-
+#debug: true
