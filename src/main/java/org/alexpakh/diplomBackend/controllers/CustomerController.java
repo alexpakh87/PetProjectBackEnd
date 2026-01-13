@@ -3,6 +3,8 @@ package org.alexpakh.diplomBackend.controllers;
 
 import org.alexpakh.diplomBackend.entities.Customer;
 import org.alexpakh.diplomBackend.services.CustomerService;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -48,5 +50,22 @@ public class CustomerController {
     @PutMapping("/{id}")
     public Customer changeCustomer(@PathVariable Long id, @RequestBody Customer details) {
         return customerService.changeCustomer(id, details);
+    }
+
+    @GetMapping("/public/hello")
+    public ResponseEntity<String> publicHello() {
+        return ResponseEntity.ok("Hello from public API!");
+    }
+
+    @GetMapping("/secured/hello")
+    public ResponseEntity<String> securedHello() {
+        return ResponseEntity.ok("Hello from secured API!");
+    }
+
+    @GetMapping("/manager/users-list")
+    @PreAuthorize("hasRole('MANAGER')")
+    public List<Customer> getUsersList() {
+        // Ваша логика
+        return customerService.getAllCustomers();
     }
 }

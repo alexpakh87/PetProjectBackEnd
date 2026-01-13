@@ -1,5 +1,10 @@
 server:
   port: 8081
+logging:
+  level:
+    org.springframework.boot.autoconfigure: DEBUG
+    org.springframework.security: TRACE
+    org.springframework.web: DEBUG
 #  ssl:
 #    key-store-type: PKCS12
 #    key-store: classpath:keystore.p12
@@ -19,7 +24,26 @@ spring:
     hibernate:
       ddl-auto: validate
 
-
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8082/realms/home-project
+#          jwk-set-uri: http://localhost:8082/auth/realms/home-project/protocol/openid-connect/certs
+#      client:
+#        provider:
+#          keycloak:
+#            issuer-uri: http://localhost:8082/auth/realms/home-project
+#            user-name-attribute: preferred_username
+#        registration:
+#          keycloak:
+#            client-id: pet
+#            client-secret: hcr0YZVoykraBs4iIUeQu57XF12qJ2uQ
+#            scope: openid
+#keycloak:
+#  auth-server-url: http://localhost:8082
+#  realm: home-project
+#  resource: pet
 
 
 
